@@ -1,0 +1,87 @@
+/* Navbar */
+@import url('../../../css_index/lootprice.css');
+
+/* Variáveis */
+:root {
+  --navbar-gradient: linear-gradient(90deg, #4a00e0, #8e2de2);
+  --navbar-light-gradient: linear-gradient(90deg, #b491ff, #d3a8ff);
+  --nav-bg: rgba(16, 16, 26, 0.96);
+  --nav-text: #ffffff;
+  --nav-accent: #8e2de2;
+  --text-color: #e0e0e0;
+}
+
+.jp-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px; /* mesma altura */
+  background: var(--navbar-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px; /* padding */
+  width: 99%;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.jp-navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--nav-text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.jp-navbar .brand img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+/* img tamanho */
+.jp-navbar #lootprice-logo {
+  width: 170px;
+  height: auto;
+}
+
+.jp-navbar .actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.jp-navbar .back-link {
+  color: var(--nav-text);
+  text-decoration: none;
+  padding: 8px 12px;
+  background: transparent;
+  transition: background 0.2s;
+}
+.jp-navbar .back-link:hover { background: rgba(255,255,255,0.04); }
+
+/* Espaçamento */
+.jp-navbar-spacer { height: 60px; }
+
+@media (max-width: 600px) {
+  .jp-navbar .brand { font-size: 14px; }
+  .jp-navbar .brand img { width: 34px; height: 34px; }
+}
+
+/* Transições */
+.jp-navbar, .jp-navbar .brand, .jp-navbar .back-link {
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+/* Modo claro */
+body.light-mode .jp-navbar {
+  background: var(--navbar-light-gradient);
+  color: var(--text-color);
+}
+
+/* Logo móvel */
+.jp-navbar .brand img { width: 36px; height: 36px; }

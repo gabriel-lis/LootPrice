@@ -1,0 +1,187 @@
+/* Escuro */
+:root {
+  --bg-color: #0e0e1a;
+  --text-color: #e0e0e0;
+  --container-bg: #1b1b2f;
+  --container-shadow: rgba(74, 0, 224, 0.3);
+  --title-color: #8e2de2;
+  --label-color: #cbd5e1;
+  --input-bg: #1b1b2f;
+  --input-border: #4a00e0;
+  --input-focus-border: #8e2de2;
+  --input-text: #e0e0e0;
+  --btn-bg: linear-gradient(135deg, #4a00e0, #8e2de2);
+  --btn-text: #ffffff;
+  --btn-hover-shadow: rgba(142, 45, 226, 0.4);
+  --success-bg: #0f3d2f;
+  --success-border: #10b981;
+  --success-text: #059669;
+  --error-bg: #3d0f0f;
+  --error-border: #ef4444;
+  --error-text: #dc2626;
+  --link-color: #8e2de2;
+}
+
+/* Claro */
+body.light-mode {
+  --bg-color: #f3f1ff;
+  --text-color: #1b1030;
+  --container-bg: #ffffff;
+  --container-shadow: rgba(163, 115, 255, 0.2);
+  --title-color: #6b21a8;
+  --label-color: #374151;
+  --input-bg: #f3f1ff;
+  --input-border: #c39bff;
+  --input-focus-border: #a173ff;
+  --input-text: #1b1030;
+  --btn-bg: linear-gradient(135deg, #c39bff, #a173ff);
+  --btn-text: #1b1030;
+  --btn-hover-shadow: rgba(163, 115, 255, 0.3);
+  --success-bg: #ecfdf5;
+  --success-border: #10b981;
+  --success-text: #059669;
+  --error-bg: #fef2f2;
+  --error-border: #ef4444;
+  --error-text: #dc2626;
+  --link-color: #6b21a8;
+}
+
+/* CSS */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Principal */
+.container {
+  width: 100%;
+  max-width: 450px;
+  background: var(--container-bg);
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px var(--container-shadow);
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 20px;
+  color: var(--title-color);
+  margin-bottom: 24px;
+}
+
+.senha-info {
+  text-align: left;
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Form */
+label {
+  display: block;
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--label-color);
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  font-size: 16px;
+  background: var(--input-bg);
+  color: var(--input-text);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.1);
+}
+
+/* Botões */
+button.btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 24px;
+  border: none;
+  border-radius: 8px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px var(--btn-hover-shadow);
+}
+
+/* Mensagem */
+.mensagem {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  display: none; /* escondida */
+  animation: fadeIn 0.5s ease;
+}
+
+.mensagem.sucesso {
+  background: var(--success-bg);
+  color: var(--success-text);
+  border: 1px solid var(--success-border);
+  display: block;
+}
+
+.mensagem.erro {
+  background: var(--error-bg);
+  color: var(--error-text);
+  border: 1px solid var(--error-border);
+  display: block;
+}
+
+/* Links */
+.extra-links {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.extra-links a {
+  color: var(--link-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}
+
+/* Animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}

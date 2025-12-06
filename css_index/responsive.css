@@ -1,0 +1,87 @@
+/* Arquivo de utilitários para responsividade global */
+
+/* Imagens e mídias fluídas */
+img, picture, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ajustes no logo e barra superior */
+#lootprice-logo {
+  width: 100%;
+  max-width: 170px; /* valor padrão para desktop */
+  height: auto;
+}
+
+/* Card size defaults (overridden por lootprice.css :root if present) */
+:root {
+  --card-w: 140px;
+  --card-h: 190px;
+}
+
+.navbar {
+  padding: 8px 12px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 320px;
+}
+
+/* Catálogo: permitir imagens fluidas com limite */
+.catalogo img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+}
+
+/* Tornar cards e containers flexíveis */
+.catalogo {
+  padding: 0 12px;
+}
+
+/* Página de jogos: não forçar width:100% para não sobrescrever o estilo local das páginas */
+.game-main-img {
+  max-width: 200px;
+  width: auto;
+  height: auto;
+}
+
+/* Formulários: containers adaptáveis */
+.container {
+  padding: 24px;
+}
+
+/* Footer responsivo */
+footer {
+  padding: 16px 12px;
+}
+
+/* Quebras de layout mais finas */
+@media (max-width: 900px) {
+  #lootprice-logo { max-width: 140px; }
+  /* Esconder a barra de pesquisa do topo em telas menores para evitar sobreposição com o overlay */
+  .search-container { display: none !important; }
+  :root { --card-w: 120px; --card-h: 160px; }
+  .game-main-img { max-width: 180px; }
+}
+
+@media (max-width: 600px) {
+  /* Esconder ou reduzir elementos que ocupam espaço */
+  .search-container { display: none; }
+  #lootprice-logo { max-width: 120px; }
+  .auth-buttons { gap: 6px; }
+  .btn-login { padding: 6px 8px; font-size: 13px; }
+  .catalogo { justify-content: center; gap: 10px; }
+  :root { --card-w: 110px; --card-h: 150px; }
+  .game-main-img { max-width: 60vw; }
+  .sidebar { width: 220px; }
+}
+
+@media (max-width: 420px) {
+  #lootprice-logo { max-width: 100px; }
+  .btn-theme { padding: 6px 8px; font-size: 16px; }
+  .btn-login { padding: 6px 8px; font-size: 12px; }
+  .container { padding: 18px; }
+}

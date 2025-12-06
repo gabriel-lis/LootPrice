@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - LootPrice</title>
+  
+  <link rel="stylesheet" href="css_index/lootprice.css">
+  <link rel="stylesheet" href="css_index/sobre.css">
+  <link rel="stylesheet" href="css_index/responsive.css">
+  <link rel="shortcut icon" href="fotos/extras/logoltdark.png" type="image/png">
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="left-section">
+      <button id="menu-btn" class="menu-btn">☰</button>
+      <a href="index.html">
+        <img id="lootprice-logo" src="fotos/extras/logoltdark.png" alt="LootPrice">
+      </a>
+    </div>
+
+    <div class="search-container" style="visibility: hidden;"></div>
+  
+    <div class="auth-buttons" id="auth-area">
+      <button id="theme-toggle" class="btn-theme" aria-label="Alternar tema">
+        <img src="fotos/extras/dark-mode.png" alt="Tema" class="theme-icon">
+      </button>
+      <a href="sites/login/login.html" class="btn-login">Entrar</a>
+      <a href="sites/login/cadastro.html" class="btn-login">Registrar</a>
+    </div>
+  </div>
+
+  <nav id="sidebar" class="sidebar">
+    <div class="sidebar-top">
+      <button id="sidebar-close" class="menu-close" aria-label="Fechar menu">✕</button>
+    </div>
+
+    <div class="sidebar-search" role="search">
+      <input type="text" id="sidebarSearchBar" class="search-input" placeholder="Pesquisar jogo..." aria-label="Pesquisar jogos">
+      <button id="sidebarSearchBtn" aria-label="Pesquisar">
+        <img src="fotos/extras/search.png" alt="Pesquisar" class="sidebar-search-icon">
+      </button>
+    </div>
+
+    <a href="index.html">Início</a>
+    <a href="sobre.html" style="background-color: rgba(255,255,255,0.05); color: #a78bfa; border-left: 3px solid #a78bfa;">Sobre nós</a>
+  </nav>
+
+  <div id="sidebar-backdrop" class="sidebar-backdrop" tabindex="-1"></div>
+
+  <div class="about-main-wrapper">
+    
+    <h1 class="hero-title">LootPrice</h1>
+    <p class="hero-subtitle">Conectando jogadores às melhores experiências.</p>
+
+    <div class="content-grid">
+      
+      <div class="glass-card">
+        <h3>Nossa Missão</h3>
+        <p>
+          Criamos um ecossistema onde a informação é clara e a comunidade tem voz ativa.
+          Chega de pagar caro sem saber o que esperar.
+        </p>
+        <p>
+          Aqui você encontra sinopses, ficha técnica e opiniões reais de quem realmente joga.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <span class="feature-icon">🎮</span>
+          <span class="feature-title">Catálogo Completo</span>
+        </div>
+        <div class="feature-box">
+          <span class="feature-icon">⭐</span>
+          <span class="feature-title">Avaliações Reais</span>
+        </div>
+        <div class="feature-box">
+          <span class="feature-icon">💬</span>
+          <span class="feature-title">Comunidade</span>
+        </div>
+        <div class="feature-box">
+          <span class="feature-icon">🔍</span>
+          <span class="feature-title">Busca Rápida</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="team-section">
+      <h2>Quem faz acontecer</h2>
+      
+      <div class="team-grid">
+        <div class="member-card">
+          <div class="member-pic">D</div>
+          <h3 class="member-name">Daniel Cinquine</h3>
+          <span class="member-role">Dev & Fundador</span>
+          <a href="https://www.instagram.com/dan.cinqy" target="_blank" class="insta-link">Instagram</a>
+        </div>
+
+        <div class="member-card">
+          <div class="member-pic">P</div>
+          <h3 class="member-name">Pedro Duarte</h3>
+          <span class="member-role">Dev & Fundador</span>
+          <a href="https://www.instagram.com/duarte.pedrin" target="_blank" class="insta-link">Instagram</a>
+        </div>
+
+        <div class="member-card">
+          <div class="member-pic">G</div>
+          <h3 class="member-name">Gabriel Leandro</h3>
+          <span class="member-role">Dev & Fundador</span>
+          <a href="https://www.instagram.com/gabriel_llee" target="_blank" class="insta-link">Instagram</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 - LootPrice - Todos os direitos reservados</p>
+  </footer>
+
+  <script src="js_index/darkmode.js"></script>
+  <script src="js_index/menulateral.js"></script>
+  <script src="js_index/auth.js"></script>
+
+</body>
+</html>

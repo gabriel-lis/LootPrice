@@ -1,0 +1,687 @@
+:root {
+  /* MODO ESCURO PADRÃO */
+  --bg-color: #0e0e1a;
+  --text-color: #e0e0e0;
+  --navbar-gradient: linear-gradient(90deg, #4a00e0, #8e2de2);
+  --btn-bg: #4a00e0;
+  --btn-hover-bg: #8e2de2;
+  --btn-text: #ffffff;
+  --theme-btn-bg: #1b1b2f;
+  --theme-btn-text: #ffffff;
+  --theme-btn-border: #8e2de2;
+  --theme-btn-hover-bg: #8e2de2;
+  --search-bg: #1b1b2f;
+  --search-border: #4a00e0;
+  --search-focus-border: #8e2de2;
+  --search-placeholder: #aaa;
+  --card-shadow: rgba(74, 0, 224, 0.6);
+  --card-hover-shadow: rgba(142, 45, 226, 0.7);
+  --footer-bg: #1b1b2f;
+  --footer-text: #ffffff;
+  --menu-bg: #1b1b2f;
+  --menu-text: #ffffff;
+  --menu-hover-bg: #4a00e0;
+  --menu-btn-color: #e0e0e0;
+  --lootprice: url('../fotos/extras/logoltdark.png')
+}
+
+/* Ajudas visuais e utilitárias */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Dropdown compacto de categorias no sidebar */
+.sidebar .category-btn {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--menu-text);
+  padding: 10px 20px;
+  font-size: 14px; /* botão com tamanho padrão */
+  cursor: pointer;
+}
+.sidebar .category-btn:hover {
+  background-color: rgba(255,255,255,0.03);
+}
+.sidebar .category-dropdown {
+  display: none; /* toggled via JS */
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 12px;
+  min-width: 180px;
+  background: var(--menu-bg);
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  padding: 6px;
+  z-index: 1100;
+}
+.sidebar .category-dropdown.show {
+  display: block;
+}
+.sidebar .category-dropdown .category-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: var(--menu-text);
+  padding: 8px 10px;
+  font-size: 13px; /* letras um pouco menores conforme pedido */
+  cursor: pointer;
+}
+.sidebar .category-dropdown .category-option:hover {
+  background: var(--menu-hover-bg);
+  color: #fff;
+  border-radius: 6px;
+}
+
+body.light-mode {
+  /* MODO CLARO */
+  --bg-color: #f3f1ff;
+  --text-color: #1b1030;
+  --navbar-gradient: linear-gradient(90deg, #b491ff, #d3a8ff);
+  --btn-bg: #c39bff;
+  --btn-hover-bg: #a173ff;
+  --btn-text: #1b1030;
+  --theme-btn-bg: #ffffff;
+  --theme-btn-text: #1b1030;
+  --theme-btn-border: #a173ff;
+  --theme-btn-hover-bg: #a173ff;
+  --search-bg: #eae4ff;
+  --search-border: #c39bff;
+  --search-focus-border: #a173ff;
+  --search-placeholder: #5a4b80;
+  --card-shadow: rgba(163, 115, 255, 0.4);
+  --card-hover-shadow: rgba(163, 115, 255, 0.6);
+  --footer-bg: #eae4ff;
+  --footer-text: #1b1030;
+  --menu-bg: #eae4ff;
+  --menu-text: #1b1030;
+  --menu-hover-bg: #c39bff;
+  --menu-btn-color: #1b1030;
+  --lootprice: url('../fotos/extras/logoltlight.png')
+}
+
+/* Reset + layout base */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+  padding-top: 70px; /* evita que o conteúdo fique atrás do cabeçalho */
+}
+
+/* Bloqueia scroll quando o menu overlay estiver aberto */
+body.no-scroll {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed; /* permite posicionar elementos dentro */
+  top: 0;
+  left: 0;
+  width: 99%;
+  background: var(--navbar-gradient);
+  padding: 10px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  z-index: 1000;
+  overflow-x: hidden;
+} 
+
+.navbar h1 {
+  margin: 0;
+}
+
+/* ✅ Logo fixada com tamanho consistente */
+#lootprice-logo {
+  content: var(--lootprice);
+  width: 170px;
+  height: auto;
+  transition: filter 0.3s ease, opacity 0.25s ease;
+  will-change: opacity;
+}
+
+/* Botões de login/cadastro */
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.btn-login {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 8px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background-color: var(--btn-hover-bg);
+  color: #fff;
+}
+
+/* Botão de alternância de tema */
+.btn-theme {
+  background-color: var(--theme-btn-bg);
+  color: var(--theme-btn-text);
+  border: 2px solid var(--theme-btn-border);
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 18px;
+}
+
+.btn-theme:hover {
+  background-color: var(--theme-btn-hover-bg);
+  color: #fff;
+}
+
+/* 🔹 Centraliza a barra de pesquisa na tela */
+.search-container {
+  flex: 1; /* ocupa o espaço central */
+  display: flex;
+  justify-content: center;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 320px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid var(--search-border);
+  border-radius: 25px;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: var(--search-bg);
+  color: var(--text-color);
+}
+
+.search-input::placeholder {
+  color: var(--search-placeholder);
+}
+
+.search-input:focus {
+  border-color: var(--search-focus-border);
+  box-shadow: 0 0 8px var(--search-focus-border);
+}
+
+/* Catálogo de jogos */
+.catalogo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  flex: 1;
+}
+
+/* HERO / DESTAQUE PRINCIPAL */
+.hero{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 12px;
+  margin: 12px 0 18px;
+  color: var(--text-color);
+}
+.hero-content{
+  max-width: 1100px;
+  width: 100%;
+  text-align: center;
+  padding: 18px 22px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  backdrop-filter: blur(6px);
+}
+.hero-title{
+  font-size: 34px;
+  line-height: 1.04;
+  margin: 2px 0 6px;
+  font-weight: 900;
+  letter-spacing: -0.4px;
+}
+.hero-subtitle{
+  font-size: 16px;
+  margin: 0 0 12px;
+  color: rgba(255,255,255,0.92);
+}
+.hero-cta{ display:flex; gap:10px; justify-content:center; align-items:center; }
+.btn-cta{
+  background: transparent;
+  color: var(--btn-text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.09);
+  font-weight:700;
+  cursor: pointer;
+  transition: background-color 0.12s ease, transform 0.12s ease;
+}
+.btn-cta:hover{ background: rgba(255,255,255,0.035); transform: translateY(-1px); }
+
+@media (max-width:900px){
+  .hero{ padding:12px 8px; margin: 8px 0 12px; }
+  .hero-content{ padding:12px; }
+  .hero-title{ font-size:22px; }
+  .hero-subtitle{ font-size:14px; }
+  .hero-cta{ flex-direction:column; gap:8px; }
+}
+
+/* Ajustes para modo claro */
+body.light-mode .hero-content{
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,255,0.96));
+  color: var(--text-color);
+  box-shadow: 0 6px 18px rgba(20,18,30,0.06);
+}
+body.light-mode .hero-title{
+  color: var(--text-color);
+}
+body.light-mode .hero-subtitle{
+  color: rgba(27,16,48,0.8);
+}
+body.light-mode .btn-cta{
+  border-color: rgba(27,16,48,0.08);
+  color: var(--menu-btn-color);
+}
+body.light-mode .btn-login, body.light-mode .btn-logout, body.light-mode .action-save{
+  color: var(--btn-text);
+}
+body.light-mode .user-greet::before{
+  /* ajusta o círculo da inicial para cores claras */
+  background: linear-gradient(135deg, #ffd166, #ff9a66);
+  color: #111;
+}
+
+/* Força cores das imagens/cards no modo claro para manter contraste */
+body.light-mode .catalogo img{ box-shadow: 0 4px 10px rgba(0,0,0,0.06); }
+
+/* tornar o backdrop menos escuro no modo claro */
+body.light-mode .sidebar-backdrop{ background: rgba(0,0,0,0.06); }
+body.light-mode .sidebar.active{ background-color: var(--menu-bg); }
+
+/* Card size variables (can be overridden in responsive.css) */
+:root {
+  --card-w: 140px;
+  --card-h: 190px;
+}
+
+.catalogo a {
+  display: inline-block;
+  width: var(--card-w);
+  height: var(--card-h);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.catalogo img {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.catalogo { justify-content: center; align-items: flex-start; }
+.catalogo a { display:flex; align-items:center; justify-content:center; }
+
+.catalogo img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px var(--card-hover-shadow);
+}
+
+/* Rodapé: fluxo normal (fica no final da página) */
+footer {
+  position: relative; /* fluxo normal */
+  margin-top: auto; /* empurra para o fim quando o body é flex column */
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 16px 0;
+  text-align: center;
+}
+
+.social-links {
+  margin-top: 8px;
+}
+
+.social-links span {
+  margin: 0 5px;
+}
+
+
+/* ===========================
+   🎬 MENU LATERAL (YouTube Style)
+   =========================== */
+
+/* 🔹 Botão de abrir/fechar o menu */
+.menu-btn {
+  background: none;
+  border: none;
+  color: var(--menu-btn-color);
+  font-size: 26px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+  color: var(--btn-hover-bg);
+}
+
+/* 🔹 Estrutura do menu lateral */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 220px;
+  height: calc(100% - 60px);
+  background-color: var(--menu-bg);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  z-index: 999;
+  box-shadow: 3px 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Links dentro do menu */
+.sidebar a {
+  color: var(--menu-text);
+  text-decoration: none;
+  padding: 14px 20px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar a:hover {
+  background-color: var(--menu-hover-bg);
+  color: #fff;
+}
+
+/* 🔹 Quando o menu está ativo */
+.sidebar.active {
+  transform: translateX(0);
+}
+
+/* Search block inside sidebar (desktop/base) */
+.sidebar .sidebar-search {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px;
+  align-items: center;
+}
+.sidebar .sidebar-search input[type="text"]{
+  width: 100%;
+  max-width: 220px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--search-border);
+  background: var(--search-bg);
+  color: var(--text-color);
+}
+.sidebar .sidebar-search button{
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Icon inside search button */
+.sidebar .sidebar-search .sidebar-search-icon{
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: none; /* allow theme colors if you prefer to invert in light/dark */
+}
+
+/* Make button compact when it contains an icon */
+.sidebar .sidebar-search button {
+  padding: 6px 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Overlay mode for small screens */
+@media (max-width: 900px) {
+  .sidebar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-100%);
+    transition: transform 0.28s cubic-bezier(.2,.9,.2,1);
+    padding-top: 72px; /* espaço para a navbar */
+    box-shadow: none;
+    z-index: 1005; /* garantir que overlay fique acima da navbar */
+    overflow-y: auto; /* evita que elementos saiam para fora */
+  }
+  .sidebar.active {
+    transform: translateY(0);
+    background-color: rgba(11,11,20,0.98);
+    backdrop-filter: blur(4px);
+  }
+
+  /* Dim behind overlay */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1004;
+  }
+  .sidebar-backdrop.show { display: block; }
+
+  /* Menu links bigger and centered for touch */
+  .sidebar a {
+    padding: 18px 24px;
+    font-size: 18px;
+  }
+
+  /* Search inside sidebar */
+  .sidebar .sidebar-search {
+    display: flex;
+    gap: 8px;
+    padding: 12px 16px;
+    align-items: center;
+  }
+  .sidebar .sidebar-search input[type="text"]{
+    flex: 1;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--search-border);
+    background: var(--search-bg);
+    color: var(--text-color);
+    font-size: 15px;
+    box-shadow: none;
+  }
+  .sidebar .sidebar-search button {
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  /* Top bar inside overlay */
+  .sidebar-top{
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    left: 12px;
+    display: flex;
+    justify-content: flex-end;
+    pointer-events: none; /* allow click through except the button */
+  }
+  .sidebar-top .menu-close{
+    pointer-events: auto;
+    background: transparent;
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 22px;
+    color: var(--menu-btn-color);
+  }
+  .sidebar .sidebar-search input[type="text"]:focus{
+    outline: 2px solid var(--search-focus-border);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+  }
+}
+
+/* 🔹 Agrupa o botão ☰ e a logo juntos */
+.left-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.menu-close {
+  background: none;
+  border: none;
+  color: var(--menu-btn-color);
+  font-size: 28px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Theme icon inside toggle button */
+.btn-theme {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-theme .theme-icon{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Botão de logout: estilo consistente, porém discreto */
+.btn-logout {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(74,0,224,0.12);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.12s ease;
+}
+.btn-logout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(74,0,224,0.16);
+}
+.btn-logout:focus {
+  outline: 3px solid rgba(142,45,226,0.18);
+  outline-offset: 2px;
+}
+
+body.light-mode .btn-logout {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+}
+
+/* Estilização da saudação do usuário com avatar circular de inicial */
+.user-greet {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.03);
+  color: var(--text-color);
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+.user-greet::before {
+  content: attr(data-initial);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, #6a00f4, #b13eff);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Pequeno ajuste responsivo: reduzir paddings em telas pequenas */
+@media (max-width: 600px) {
+  .user-greet { padding: 4px 8px; font-size: 14px; }
+  .user-greet::before { width: 26px; height: 26px; font-size: 13px; }
+  .btn-logout { padding: 6px 10px; font-size: 13px; }
+}
+
+/* Aperfeiçoamento para botões de login (consistência) */
+.btn-login {
+  background: linear-gradient(90deg, var(--btn-bg), var(--btn-hover-bg));
+  color: var(--btn-text);
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 18px rgba(74,0,224,0.08);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-login:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(74,0,224,0.12); }
+
+/* 🔹 Responsividade: menu fecha em telas pequenas */
+@media (max-width: 600px) {
+  .sidebar {
+    width: 180px;
+  }
+  .sidebar a {
+    font-size: 14px;
+  }
+  .auth-buttons {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .btn-login {
+    min-width: 80px;
+    font-size: 13px;
+    padding: 6px 8px;
+    max-width: 100%;
+    word-break: break-word;
+      box-sizing: border-box;
+  }
+}

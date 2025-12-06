@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - GameZone</title>
+  <link rel="stylesheet" href="css_login/cadastro.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css_index/responsive.css">
+</head>
+<body>
+  <link rel="stylesheet" href="../../css_index/lootprice.css">
+
+  <div class="navbar">
+    <div class="left-section">
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menu">☰</button>
+      <a href="../../index.html" target="_top">
+        <img id="lootprice-logo" src="../../fotos/extras/logoltdark.png" alt="LootPrice">
+      </a>
+    </div>
+
+    <div class="auth-buttons" id="auth-area">
+      <button id="theme-toggle" class="btn-theme" aria-label="Alternar tema">
+        <img src="../../fotos/extras/dark-mode.png" alt="Tema" class="theme-icon">
+      </button>
+      <a href="cadastro.html" class="btn-login">Registrar</a>
+      <a href="login.html" class="btn-login">Entrar</a>
+    </div>
+  </div>
+  <div class="container">
+    <h2>🕹️ Login</h2>
+
+    <form id="formLogin">
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" required placeholder="Seu nome de jogador">
+    
+      <label for="email">Email de usuário:</label>
+      <input type="text" id="email" required placeholder="Digite seu email">
+
+      <label for="password">Senha:</label>
+      <input type="password" id="password" required placeholder="Sua senha">
+
+      <button type="submit" class="btn">Entrar</button>
+    
+    </form>
+
+    <div class="mensagem" id="mensagem"></div>
+
+    <div class="extra-links">
+      <p>Ainda não tem conta? <a href="cadastro.html">Registrar</a></p>
+    </div>
+  </div>
+
+  <script src="../../js_index/darkmode.js"></script>
+  <script src="../../js_index/menulateral.js"></script>
+  <script src="js_login/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css login/cadastro.css">
+  <link rel="stylesheet" href="css_login/cadastro.css">
+  <link rel="stylesheet" href="../../css_index/responsive.css">
+  <title>Cadastro - GameZone</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <link rel="stylesheet" href="../../css_index/lootprice.css">
+
+  <div class="navbar">
+    <div class="left-section">
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menu">☰</button>
+      <a href="../../index.html" target="_top">
+        <img id="lootprice-logo" src="../../fotos/extras/logoltdark.png" alt="LootPrice">
+      </a>
+    </div>
+
+    <div class="auth-buttons" id="auth-area">
+      <button id="theme-toggle" class="btn-theme" aria-label="Alternar tema">
+        <img src="../../fotos/extras/dark-mode.png" alt="Tema" class="theme-icon">
+      </button>
+      <a href="login.html" class="btn-login">Entrar</a>
+      <a href="cadastro.html" class="btn-login">Registrar</a>
+    </div>
+  </div>
+  <div class="container">
+    <h2>🎮 Cadastro de Jogador</h2>
+
+    <form id="formCadastro">
+      <label for="username">Nome de Usuário</label>
+      <input type="text" id="username" name="username" placeholder="Escolha um nome de jogador" required>
+
+      <label for="email">E-mail</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+      <label for="password">Senha</label>
+      <input type="password" id="password" name="password" placeholder="Digite sua senha" required minlength="6">
+
+      <p class="senha-info">· Mínimo 6 caracteres</p>
+
+
+      <label for="confirm-password">Confirmar Senha</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirme sua senha" required>
+
+      <label for="nascimento">Data de nascimento:</label>
+      <input type="date" id="nascimento" name="nascimento"
+               min="1900-01-01" max="2025-10-11" required>
+
+      <button type="submit" class="btn">🚀 Registrar-se</button>
+    </form>
+    
+    <div class="mensagem" id="mensagem"></div>
+
+    <div class="extra-links">
+        <p>Já tem uma conta? <a href="login.html">Faça Login</a></p>
+    </div>
+  </div>
+
+  <script src="../../js_index/darkmode.js"></script>
+  <script src="../../js_index/menulateral.js"></script>
+  <script src="js_login/cadastro.js"></script>
+
+</body>
+</html>
